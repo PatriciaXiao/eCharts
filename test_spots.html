@@ -88,20 +88,19 @@ option = {
                 color: 'rgb(129, 227, 238)'
             }
         }
-    }, {
+    }],
+    markLine: {
         name: '1990',
-        type: 'lines',
-        zlevel: 2,
-        coordinate
-        effect: [
-        ],
         data: [
             // data
-            {
-                coords: [[28604,77], [31163,77.4]]
-            }
+            [
+                // 
+                { name: 'Australia', value: 17096869, xAxis:28604, yAxis:77 },
+                { name: 'China', value: 1154605773, xAxis: 1516, yAxis: 68}
+            ]
+            
         ]
-    }]
+    }
 };
 
 myChart.setOption(option);
