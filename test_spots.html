@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="js/echarts.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+
+var data = [
+    [[28604,77,17096869,'Australia',1990],[31163,77.4,27662440,'Canada',1990],[1516,68,1154605773,'China',1990]],
+    [[44056,81.8,23968973,'Australia',2015],[43294,81.7,35939927,'Canada',2015],[13334,76.9,1376048943,'China',2015]]
+];
+
+var data1 = [
+    {name: 'Australia', value: [28604,77,17096869, 'Australia', 1990]}, 
+    {name: 'Canada', value: [31163,77.4,27662440, 'Canada', 1990]},
+    {name: 'China', value: [1516,68,1154605773, 'China', 1990]}
+];
+
+option = {
+    // backgroundColor: '#cdd0d5',
+    title: {
+        text: '1990 与 2015 年各国家人均寿命与 GDP'
+    },
+    legend: {
+        right: 10,
+        data: ['1990', '2015']
+    },
+    xAxis: {
+        // show: false,
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        }
+    },
+    yAxis: {
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        },
+        scale: true
+    },
+    series: [{
+        name: '1990',
+        data: data1, //data[0],
+        type: 'scatter',
+        symbolSize: function (data) {
+            return Math.sqrt(data[2]) / 5e2;
+        },
+        label: {
+            emphasis: {
+                show: true,
+                formatter: function (param) {
+                    return param.name; //param.value[3];
+                },
+                position: 'top'
+            }
+        },
+        itemStyle: {
+            normal: {
+                color: 'rgb(251, 118, 123)'
+            }
+        }
+    }, {
+        name: '2015',
+        data: data[1],
+        type: 'effectScatter',
+        symbolSize: function (data) {
+            return Math.sqrt(data[2]) / 5e2;
+        },
+        label: {
+            emphasis: {
+                show: true,
+                formatter: function (param) {
+                    return param.data[3];
+                },
+                position: 'top'
+            }
+        },
+        itemStyle: {
+            normal: {
+                color: 'rgb(129, 227, 238)'
+            }
+        }
+    }, {
+        name: '1990',
+        type: 'lines',
+        zlevel: 2,
+        effect: [
+        ]
+    }]
+};
+
+myChart.setOption(option);
+       </script>
+   </body>
+</html>

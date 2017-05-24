@@ -1,0 +1,11 @@
+http://echarts.baidu.com/index.html
+
+http://echarts.baidu.com/tutorial.html
+
+https://segmentfault.com/a/1190000004503721
+
+关于服务器的部署
+http://www.jianshu.com/p/be9dd421fb8d
+
+其他动画的参考
+http://web.jobbole.com/85543/
