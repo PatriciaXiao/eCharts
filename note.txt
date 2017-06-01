@@ -25,3 +25,6 @@ https://stackoverflow.com/questions/647805/trapping-mysql-warnings-in-python
 	except MySQLdb.ProgrammingError:
 		# print repr(e)
 		print "error"
+
+sql大小写不敏感: 使用binary
+http://www.45fan.com/a/question/19745.html
