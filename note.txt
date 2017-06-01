@@ -19,3 +19,9 @@ try:
 			print line
 	except Exception, e:
 		print repr(e)
+
+https://stackoverflow.com/questions/647805/trapping-mysql-warnings-in-python
+
+	except MySQLdb.ProgrammingError:
+		# print repr(e)
+		print "error"
