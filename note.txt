@@ -9,3 +9,13 @@ http://www.jianshu.com/p/be9dd421fb8d
 
 其他动画的参考
 http://web.jobbole.com/85543/
+
+sql 的参考：
+try:
+	cursor.execute(sql)
+		results = cursor.fetchall() #tuple
+		print results
+		for line in results:
+			print line
+	except Exception, e:
+		print repr(e)
