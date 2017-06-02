@@ -28,3 +28,14 @@ https://stackoverflow.com/questions/647805/trapping-mysql-warnings-in-python
 
 sql大小写不敏感: 使用binary
 http://www.45fan.com/a/question/19745.html
+
+js字符串前补零
+function pad(num, n) {  
+  return Array(n>num?(n-(''+num).length+1):0).join(0)+num;  
+}  
+
+pad(10, 4) = '0010'
+
+function pad(num, n) {  
+  return Array(n>num.toString().length?(n-(''+num).length+1):0).join(0)+num;  
+} 
