@@ -39,3 +39,18 @@ pad(10, 4) = '0010'
 function pad(num, n) {  
   return Array(n>num.toString().length?(n-(''+num).length+1):0).join(0)+num;  
 } 
+
+clone object in javascript:
+function obj_clone(dst, src) {
+    $.extend(dst, src);
+} // jquery is used
+
+function obj_clone(src) {
+    /*
+    var dst = {};
+    $.extend(dst, src);
+    return dst;
+    */
+    var dst = JSON.parse(JSON.stringify(src));
+    return dst;
+}
