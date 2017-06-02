@@ -54,3 +54,6 @@ function obj_clone(src) {
     var dst = JSON.parse(JSON.stringify(src));
     return dst;
 }
+
+// js event
+http://www.w3school.com.cn/jsref/event_onclick.asp
