@@ -61,6 +61,11 @@ http://www.w3school.com.cn/jsref/event_onclick.asp
 max in an array:
 Math.max(...[])
 
+do something at the begining
+$(document).ready(function() {
+              document.getElementById("show_date").value = date_time_formatter({{year}}, {{month}}, {{day}});
+             });
+
 // append tspan
 graph.selectAll(".label_text") // couldn't be selectAll "text" since there are already texts
     .data(data.value)
