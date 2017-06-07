@@ -57,3 +57,74 @@ function obj_clone(src) {
 
 // js event
 http://www.w3school.com.cn/jsref/event_onclick.asp
+
+max in an array:
+Math.max(...[])
+
+// append tspan
+graph.selectAll(".label_text") // couldn't be selectAll "text" since there are already texts
+    .data(data.value)
+  .enter().append("text")
+      /*
+     .attr("transform", function(d, i){
+        if(small_range)
+          return "rotate(0)";
+        else
+          return "rotate(-90)";
+     })
+     */
+    .attr("class", function(d) {
+            if (small_range)
+              return "label_text";
+            else
+              return "label_text_mid";
+        }) // don't forget it
+    .attr("text-anchor", "middle")
+    .attr("x", function(d, i) {
+      return x(i) + label_offset.x;
+      /*
+      if (small_range)
+        return x(i) + label_offset.x;
+      else
+        return label_offset.x - y(d);
+      */
+    })
+  .attr("y", function(d, i) { 
+    return y(d) + label_offset.y;
+    /*
+    if (small_range)
+      return y(d) + label_offset.y;
+    else
+      return x(i) + label_offset.y;
+    */
+  })
+  .text(function(d, i) {
+    return "¥"; // + d.toFixed(2);
+  });
+
+console.log(Math.max(...data.value));
+graph.selectAll(".label_text_mid")
+    .data(data.value)
+  .append("tspan")
+    .attr("x", function(d, i) {
+      console.log(d)
+      return x(i) + label_offset.x;
+    })
+    .attr("y", function(d, i) {
+      return y(d) + label_offset.y + 10;
+    })
+    .text("hello");
+graph.selectAll(".label_text_mid")
+    .data(data.value)
+  .append("tspan")
+    .attr("x", function(d, i) {
+      console.log(d)
+      return x(i) + label_offset.x;
+    })
+    .attr("y", function(d, i) {
+      return y(d) + label_offset.y + 20;
+    })
+    .text("world");
+
+
+http://www.runoob.com/svg/svg-text.html
