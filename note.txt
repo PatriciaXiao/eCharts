@@ -133,3 +133,17 @@ graph.selectAll(".label_text_mid")
 
 
 http://www.runoob.com/svg/svg-text.html
+
+堆叠的导航
+侧边栏导航
+http://www.runoob.com/try/try.php?filename=bootstrap-Stacked-or-vertical-Pills-Based-Navigation
+http://www.runoob.com/bootstrap/bootstrap-v2-nav.html
+
+Flask
+https://segmentfault.com/q/1010000000365167
+
+<p style="display: none">Hello world</p>
+隐藏元素
+
+path 样式
+http://www.w3school.com.cn/svg/svg_path.asp
