@@ -147,3 +147,21 @@ https://segmentfault.com/q/1010000000365167
 
 path 样式
 http://www.w3school.com.cn/svg/svg_path.asp
+
+ajax
+@app.route('/json/<nodes>', methods=['POST', 'GET'])
+def data(nodes=None):
+  # test
+  import json
+  return json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True)
+
+                      $.ajax({
+                          url:"{{url_for('data')}}", // + "hello",
+                          type:'post',
+                          dataType:'JSON',
+                          success:function(objdata){
+                            console.log("success")
+                            console.log(this.url)
+                            console.log(objdata)
+                          }
+                      });
