@@ -165,3 +165,11 @@ def data(nodes=None):
                             console.log(objdata)
                           }
                       });
+
+
+http://echarts.baidu.com/echarts2/doc/example/mix8.html
+https://ecomfe.github.io/echarts-examples/public/editor.html?c=pie-roseType
+https://ecomfe.github.io/echarts-examples/public/#chart-type-pie
+http://echarts.baidu.com/demo.html#pie-nest
+http://echarts.baidu.com/demo.html#radar-custom
+http://echarts.baidu.com/demo.html#pie-pattern
