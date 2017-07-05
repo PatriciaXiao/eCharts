@@ -174,3 +174,5 @@ http://echarts.baidu.com/demo.html#pie-nest
 http://echarts.baidu.com/demo.html#radar-custom
 http://echarts.baidu.com/demo.html#pie-pattern
 http://echarts.baidu.com/demo.html#scatter-nutrients-matrix
+http://echarts.baidu.com/gallery/editor.html?c=line-marker
+https://ecomfe.github.io/echarts-examples/public/editor.html?c=line-easing
