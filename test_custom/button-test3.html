@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+// Prime Costs and Prices for ACME Fashion\nCollection "Spring-Summer, 2016"
+// Data from https://playground.anychart.com/gallery/7.12.0/Error_Charts/Marker_Chart
+var dimensions = [
+    'name', 'Price', 'Prime cost'
+];
+var data = [
+    ['Blouse "Blue Viola"', 2, 5],
+    ['Dress "Daisy"', 25, 5],
+    ['Trousers "Cutesy Classic"', 47, 5],
+    ['Hello "world"', 200, 5]
+];
+
+function renderItem(params, api) {
+    /*
+    return {
+        type: 'rect',
+        shape: {
+            x: 0, 
+            y: 0, 
+            width: 100, 
+            height: 100
+        },
+        style: api.style(),
+        silent: true
+    };
+    */
+    // console.log(api.value(0), api.value(1), api.value(2))
+    var param = [api.value(1), api.value(2)];
+    var coords = api.coord(param);
+    // console.log(coords)
+    // console.log("apistyle")
+    // console.log(api.style())
+    
+    var button_style = api.style({
+        stroke: "#ff0000", //api.visual('color'),
+        fill: "#ff0000", //api.visual('color')
+        text: "Hello World",
+        font: api.font({fill:"#fff"})
+    });
+    var button_emph = api.style({
+        stroke: "#00ff00",
+        fill: "#00ff00",
+        text: "Hover Over",
+        font: api.font({fill:"#fff"})
+    });
+    
+    var shadow_style = api.style({
+        // stroke: "#000000",
+        fill: "#000000"
+    });
+    // console.log(button_style)
+    return {
+        //
+        type: 'group',
+        children: [{
+            type: 'rect',
+            shape: {
+                x: coords[0] + 1, 
+                y: coords[1] + 1, 
+                width: 100, 
+                height: 20
+            },
+            style: shadow_style,
+            silent: true,
+        },{
+            type: 'rect',
+            shape: {
+                x: coords[0], 
+                y: coords[1], 
+                width: 100, 
+                height: 20
+            },
+            style: button_style, // api.style(), //
+            silent: false,
+            styleEmphasis: button_emph,
+        },{
+            type: 'text',
+            style: {
+                x: coords[0],
+                y: coords[1] + 10,
+                text: "HELLLLL",
+                fill: '#fff',
+                textFont: api.font({
+                    fontSize: 14,
+                    fontWeight: "bold"
+                })
+            }
+        }]
+    };
+}
+
+option = {
+    grid: {
+        show: true,
+        top: 0, //0
+        width: "auto",
+        height: "10%"
+    },
+    xAxis: {
+        show: true, //show: false,
+        min: 0,
+        max: 240
+    },
+    yAxis: {
+        show: true,//false,
+        min: 0,
+        max: 10
+    },
+    /*
+    title: [
+        {
+            text: "按钮1",
+            left: 350,
+            top: "5%",
+            textStyle : {
+                color: '#fff'
+            },
+            z: 200
+        }
+    ],
+    */
+    series: [{
+        type: 'custom',
+        name: 'debug',
+        renderItem: renderItem,
+        dimensions: dimensions,
+        coordinateSystem: 'cartesian2d',
+        encode: {
+            x: [1],
+            y: [2],
+            tooltip: [1, 2],
+            itemName: 0,
+            label: 0
+        },
+        data: data,
+        textStyle : {
+            color: '#fff'
+        },
+        z: 100
+    }]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+    myChart.on('click', function (params) {
+        // console.log(params)
+        console.log(option.series[0].data[params.dataIndex])
+        console.log(option.series[0].renderItem)
+        myChart.setOption(option, true);
+    });
+}
+       </script>
+   </body>
+</html>
