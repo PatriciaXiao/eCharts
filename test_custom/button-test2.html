@@ -14,13 +14,13 @@ option = null;
 // Prime Costs and Prices for ACME Fashion\nCollection "Spring-Summer, 2016"
 // Data from https://playground.anychart.com/gallery/7.12.0/Error_Charts/Marker_Chart
 var dimensions = [
-    'name', 'Price', 'Prime cost'
+    'name', 'Price', 'Prime cost', 'selected'
 ];
 var data = [
-    ['Blouse "Blue Viola"', 2, 5],
-    ['Dress "Daisy"', 25, 5],
-    ['Trousers "Cutesy Classic"', 47, 5],
-    ['Hello "world"', 200, 5]
+    ['Blouse "Blue Viola"', 2, 5, false],
+    ['Dress "Daisy"', 25, 5, false],
+    ['Trousers "Cutesy Classic"', 47, 5, false],
+    ['Hello "world"', 200, 5, false]
 ];
 
 function renderItem(params, api) {
@@ -43,10 +43,15 @@ function renderItem(params, api) {
     // console.log(coords)
     // console.log("apistyle")
     // console.log(api.style())
+
+    if(api.value(3))
+        button_color = "#0000ff";
+    else
+        button_color = "#ff0000";
     
     var button_style = api.style({
-        stroke: "#ff0000", //api.visual('color'),
-        fill: "#ff0000", //api.visual('color')
+        stroke: button_color, //"#ff0000", //api.visual('color'),
+        fill: button_color, // "#ff0000", //api.visual('color')
         text: "Hello World",
         font: api.font({fill:"#fff"})
     });
@@ -84,16 +89,19 @@ function renderItem(params, api) {
                 height: 20
             },
             style: button_style, // api.style(), //
-            silent: false,
+            silent: api.value(3),//false,
             styleEmphasis: button_emph,
         },{
             type: 'text',
             style: {
                 x: coords[0],
                 y: coords[1] + 10,
-                text: "HELLLLL",
+                text: "HELLO",
                 fill: '#fff',
-                textFont: api.font({fontSize: 14})
+                textFont: api.font({
+                    fontSize: 14,
+                    fontWeight: "bold"
+                })
             }
         }]
     };
@@ -109,7 +117,7 @@ option = {
     xAxis: {
         show: true, //show: false,
         min: 0,
-        max: 240
+        max: 300
     },
     yAxis: {
         show: true,//false,
@@ -155,6 +163,7 @@ if (option && typeof option === "object") {
         // console.log(params)
         console.log(option.series[0].data[params.dataIndex])
         console.log(option.series[0].renderItem)
+        option.series[0].data[params.dataIndex][3] = true;
         myChart.setOption(option, true);
     });
 }
