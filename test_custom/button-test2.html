@@ -89,7 +89,7 @@ function renderItem(params, api) {
                 height: 20
             },
             style: button_style, // api.style(), //
-            silent: api.value(3),//false,
+            silent: false,
             styleEmphasis: button_emph,
         },{
             type: 'text',
@@ -108,6 +108,9 @@ function renderItem(params, api) {
 }
 
 option = {
+    tooltip: {
+        //
+    },
     grid: {
         show: true,
         top: 0, //0
@@ -154,6 +157,9 @@ option = {
         textStyle : {
             color: '#fff'
         },
+        tooltip: {
+            formatter: 'Hello'
+        },
         z: 100
     }]
 };;
@@ -163,7 +169,7 @@ if (option && typeof option === "object") {
         // console.log(params)
         console.log(option.series[0].data[params.dataIndex])
         console.log(option.series[0].renderItem)
-        option.series[0].data[params.dataIndex][3] = true;
+        option.series[0].data[params.dataIndex][3] = !option.series[0].data[params.dataIndex][3];
         myChart.setOption(option, true);
     });
 }
